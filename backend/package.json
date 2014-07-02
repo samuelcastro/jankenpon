@@ -1,0 +1,24 @@
+{
+  "name": "jankenpon",
+  "version": "0.0.1",
+  "private": true,
+  "scripts": {
+    "start": "node ./bin/www"
+  },
+  "dependencies": {
+    "express": "~4.2.0",
+    "express-load": "~1.1.8",
+    "static-favicon": "~1.0.0",
+    "morgan": "~1.0.0",
+    "mongoose" : "~3.8.6",
+    "cookie-parser": "~1.0.1",
+    "body-parser": "~1.0.0",
+    "debug": "~0.7.4"
+  },
+    "devDependencies": {
+        "mocha": "*",
+        "should": "*",
+        "superagent": "*",
+        "expect": "*"
+    }
+}

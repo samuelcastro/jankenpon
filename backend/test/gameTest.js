@@ -45,8 +45,15 @@ describe('Game Test', function() {
                 "playerOption": '2'
             };
             request.post('http://localhost:3000/save').send(game).set('Accept','application/json').end(function(err, res) {
-                console.log(res);
                 res.should.have.property('status').with.equal(200);
+                res.should.have.property('body').be.an.Object;
+                res.body.should.have.property('__v').be.a.Number;
+                res.body.should.have.property('playerName').be.a.String;
+                res.body.should.have.property('playerOption').be.a.String;
+                res.body.should.have.property('serverOption').be.a.String;
+                res.body.should.have.property('winner').be.a.String;
+                res.body.should.have.property('date').be.a.Date;
+                res.body.should.have.property('_id').be.a.String;
                 res.req.should.have.property('path').with.equal('/save');
                 console.info('start game');
                 done();

@@ -23,11 +23,11 @@ var GameSchema = new Schema({
  * @param cb
  */
 GameSchema.statics.save = function(game, cb) {
-    game.save(function(err, rst) {
+    game.save(function(err, result) {
         if(err) {
-            cb(err,{ status: "err", result: rst });
+            cb(err,{ status: "err", result: result });
         } else {
-            cb(err,{ status: "OK", result: rst });
+            cb(err,{ status: "OK", result: result });
         }
     });
 };

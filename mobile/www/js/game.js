@@ -10,7 +10,7 @@ function playGame(playerOption){
         url: 'http://192.168.0.100:3000/save',
         success: function(data) {
             console.log(data);
-            alert(data.winner == 'none' ? 'Ops! Nobody won, try again.' : data.winner == 'player' ? 'Uhuuuu You Won ! :)' : 'Sorry. Server won. :\'( ');
+            alert(data.winner == 'none' ? 'Ops! Nobody won, try again.' : data.winner == 'player' ? 'Uhuuuu You Won ! :)' : 'I won, sorry. :\'( ');
         },
         error: function() {
             console.log(data);

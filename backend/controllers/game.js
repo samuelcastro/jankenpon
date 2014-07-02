@@ -44,12 +44,6 @@ var randomServer = function() {
  * Execute play game
  */
 var playGame = function(playerOption, serverOption) {
-    console.log(playerOption);
-    console.log(serverOption);
-    console.log('STONE ' + STONE);
-    console.log('PAPER ' + PAPER);
-    console.log('SCISSORS' + SCISSORS);
-
     var winner = 'none';
 
     switch (serverOption) {
@@ -60,7 +54,6 @@ var playGame = function(playerOption, serverOption) {
         case SCISSORS : winner = playerOption == STONE ? 'player' : playerOption == PAPER ? 'server' : playerOption == SCISSORS ? 'none' : 'none';
             break;
     }
-    console.log(winner);
     return winner;
 };
 

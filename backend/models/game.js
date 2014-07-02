@@ -23,16 +23,12 @@ var GameSchema = new Schema({
  * @param cb
  */
 GameSchema.statics.save = function(game, cb) {
-
     game.save(function(err, rst) {
         if(err) {
             cb(err,{ status: "err", result: rst });
         } else {
             cb(err,{ status: "OK", result: rst });
         }
-
-
-
     });
 };
 
@@ -41,7 +37,6 @@ GameSchema.statics.save = function(game, cb) {
  * @param cb
  */
 GameSchema.statics.findAll = function (cb) {
-
     this.find(function(err, result) {
         if(err) {
             cb(err,{ status: "err", result: result });

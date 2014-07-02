@@ -52,6 +52,10 @@ var app = {
 };
 
 var setUserName = function(userName) {
+    if(userName == '') {
+        alert('Please, enter your name !');
+        return;
+    }
     window.localStorage.setItem('userName', userName);
     window.location = "./game.html";
 }

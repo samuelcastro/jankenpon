@@ -21,7 +21,7 @@ exports.save = function(req, res) {
         "playerName": req.param('playerName'),
         "playerOption": req.param('playerOption'),
         "serverOption": serverOption,
-        "winner": playGame(req.param('playerOption'), serverOption),
+        "winner": playGame({player: req.param('playerOption'), server: serverOption}),
         "date": new Date()
     });
     game.save(function(err, result) {
@@ -43,15 +43,15 @@ var randomServer = function() {
 /**
  * Execute play game
  */
-var playGame = function(playerOption, serverOption) {
+var playGame = function(options) {
     var winner = 'none';
 
-    switch (serverOption) {
-        case STONE : winner = playerOption == STONE ? 'none' : playerOption == PAPER ? 'player' : playerOption == SCISSORS ? 'server' : 'none';
+    switch (options.server) {
+        case STONE : winner = options.player == STONE ? 'none' : options.player == PAPER ? 'player' : options.player == SCISSORS ? 'server' : 'none';
             break;
-        case PAPER : winner = playerOption == STONE ? 'server' : playerOption == PAPER ? 'none' : playerOption == SCISSORS ? 'player' : 'none';
+        case PAPER : winner = options.player == STONE ? 'server' : options.player == PAPER ? 'none' : options.player == SCISSORS ? 'player' : 'none';
             break;
-        case SCISSORS : winner = playerOption == STONE ? 'player' : playerOption == PAPER ? 'server' : playerOption == SCISSORS ? 'none' : 'none';
+        case SCISSORS : winner = options.player == STONE ? 'player' : options.player == PAPER ? 'server' : options.player == SCISSORS ? 'none' : 'none';
             break;
     }
     return winner;
